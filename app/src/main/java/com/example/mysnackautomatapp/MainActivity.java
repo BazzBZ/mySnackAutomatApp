@@ -9,17 +9,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    public MainActivity(DataManager dataManager) {
-        this.dataManager = dataManager;
+    public MainActivity() {
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AddEntryFragment addEntryFragment = new AddEntryFragment();
+        dataManager = new DataManager();
         ShowList showList;
+
         BottomNavigationView bottomNavBar = findViewById(R.id.bottom_navigation_menu);
         bottomNavBar.setOnItemSelectedListener(item -> {
                     if (item.getItemId() == R.id.page_1) {

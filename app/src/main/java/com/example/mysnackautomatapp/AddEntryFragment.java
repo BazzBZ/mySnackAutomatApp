@@ -34,11 +34,19 @@ public class AddEntryFragment extends Fragment {
                             .show();
                     return;
                 }
+                if (DataManager.getNames().contains(addEntry)){
+                    Toast.makeText(getActivity(),"Schon vorhanden", Toast.LENGTH_LONG)
+                            .show();
+                    tvAddEntry.setText("");
+                    return;
+                }
+
                 MainActivity invoker = (MainActivity) getActivity();
                 invoker.getDataManager().saveProduct(addEntry);
 
-                Toast.makeText(getActivity(), addEntry+ "saved", Toast.LENGTH_LONG);
-
+                Toast.makeText(getActivity(), addEntry+ " saved", Toast.LENGTH_LONG)
+                        .show();
+                tvAddEntry.setText("");
             }
 
 
