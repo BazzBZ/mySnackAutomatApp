@@ -34,6 +34,7 @@ class AddEntryFragment : Fragment() {
 
             if (addEntry.isEmpty()) {
                 Toast.makeText(context, "Darf nicht leer sein", Toast.LENGTH_LONG)
+                    .show()
                 return@setOnClickListener
             }
 
@@ -44,6 +45,7 @@ class AddEntryFragment : Fragment() {
 
 
             Toast.makeText(activity, "$addEntry saved", Toast.LENGTH_LONG)
+                .show()
 
 
         }
