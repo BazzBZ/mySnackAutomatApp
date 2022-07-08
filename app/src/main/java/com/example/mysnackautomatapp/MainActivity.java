@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         AddEntryFragment addEntryFragment = new AddEntryFragment();
         dataManager = new DataManager();
-        ShowList showList;
+        //ShowList showList;
 
         BottomNavigationView bottomNavBar = findViewById(R.id.bottom_navigation_menu);
         bottomNavBar.setOnItemSelectedListener(item -> {
