@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AddEntryFragment addEntryFragment = new AddEntryFragment();
-        ViewListFragment viewListFragment = new ViewListFragment();
+        LagerViewFragment viewListFragment = new LagerViewFragment();
         dataManager = new DataManager();
         //ShowList showList;
 

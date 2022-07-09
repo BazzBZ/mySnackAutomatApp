@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-public class ViewListFragment extends Fragment {
+public class LagerViewFragment extends Fragment {
 
     //boolean reversed = false;
 
