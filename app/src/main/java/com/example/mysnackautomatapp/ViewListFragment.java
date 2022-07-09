@@ -17,7 +17,7 @@ public class ViewListFragment extends Fragment {
     //boolean reversed = false;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
 
         return inflater.inflate(R.layout.view_list_fragment, container, false);
     }

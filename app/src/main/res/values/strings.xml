@@ -4,4 +4,6 @@
     <string name="text_label_2">View List</string>
     <string name="text_label_3">Einkauf</string>
     <string name="liste">liste</string>
+    <string name="text_label_4">Foto</string>
+    <string name="text_label_5">Entleerung</string>
 </resources>

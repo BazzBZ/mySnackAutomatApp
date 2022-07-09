@@ -15,6 +15,11 @@
         android:enabled="true"
         android:icon="@drawable/ic_hopping_cart"
         android:title="@string/text_label_3"/>
+    <item
+        android:id="@+id/page_4"
+        android:enabled="true"
+        android:icon="@drawable/ic_add_photo"
+        android:title="@string/text_label_4"/>
 
 
 </menu>

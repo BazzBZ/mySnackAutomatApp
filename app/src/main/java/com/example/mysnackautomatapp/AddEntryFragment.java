@@ -12,28 +12,28 @@ import androidx.fragment.app.Fragment;
 
 public class AddEntryFragment extends Fragment {
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
 
         return inflater.inflate(R.layout.add_entry_fragment, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, Bundle bundle){
+    public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
         Log.d("AddEntryFragment", "onViewCreated");
         view.findViewById(R.id.bAddEntry).setOnClickListener(v -> {
             TextView tvAddEntry = view.findViewById(R.id.addEntryTF);
             String addEntry = tvAddEntry.getText().toString();
-            Log.d("Add Entry frag", "Product "+ addEntry);
+            Log.d("Add Entry frag", "Product " + addEntry);
 
 
-            if(addEntry.isEmpty()){
+            if (addEntry.isEmpty()) {
                 Toast.makeText(getContext(), "Darf nich leer sein", Toast.LENGTH_LONG)
                         .show();
                 return;
             }
-            if (DataManager.getNames().contains(addEntry)){
-                Toast.makeText(getActivity(),"Schon vorhanden", Toast.LENGTH_LONG)
+            if (DataManager.getNames().contains(addEntry)) {
+                Toast.makeText(getActivity(), "Schon vorhanden", Toast.LENGTH_LONG)
                         .show();
                 tvAddEntry.setText("");
                 return;
@@ -42,13 +42,10 @@ public class AddEntryFragment extends Fragment {
             MainActivity invoker = (MainActivity) getActivity();
             invoker.getDataManager().saveProduct(addEntry);
 
-            Toast.makeText(getActivity(), addEntry+ " saved", Toast.LENGTH_LONG)
+            Toast.makeText(getActivity(), addEntry + " saved", Toast.LENGTH_LONG)
                     .show();
             tvAddEntry.setText("");
         });
-
-
-
 
 
     }
@@ -63,7 +60,6 @@ public class AddEntryFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         Log.d("Add Entry Fragment", "onDestroy");
-
 
 
     }
