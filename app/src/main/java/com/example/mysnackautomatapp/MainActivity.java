@@ -13,14 +13,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AddEntryFragment addEntryFragment = new AddEntryFragment();
-        LagerViewFragment viewListFragment = new LagerViewFragment();
+        LagerViewFragment lagerViewFragment = new LagerViewFragment();
+        AutomatViewFragment automatViewFragment = new AutomatViewFragment();
+        PhotoViewFragment photoViewFragment = new PhotoViewFragment();
         dataManager = new DataManager();
         //ShowList showList;
 
@@ -34,24 +34,36 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     } else if (item.getItemId() == R.id.page_2) {
-                        Log.i("Add Entry", "Page 2");
+                        Log.i("View List", "Page 2");
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragmentContainerView, viewListFragment)
+                                .replace(R.id.fragmentContainerView, lagerViewFragment)
                                 .commit();
                         return true;
+                    } else if (item.getItemId() == R.id.page_3) {
+                        Log.i("Einkauf", "Page 3");
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragmentContainerView, automatViewFragment)
+                                .commit();
+                        return true;
+
+                    } else if (item.getItemId() == R.id.page_4) {
+                        Log.i("Take photo", "Page 4");
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragmentContainerView, photoViewFragment)
+                                .commit();
+                        return true;
+
+
                     }
+
                     return false;
                 }
-
-
         );
-
-
     }
 
     private DataManager dataManager;
 
-    public DataManager getDataManager(){
+    public DataManager getDataManager() {
         return dataManager;
     }
 
