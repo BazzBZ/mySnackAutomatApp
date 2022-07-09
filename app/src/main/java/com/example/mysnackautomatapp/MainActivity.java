@@ -13,11 +13,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AddEntryFragment addEntryFragment = new AddEntryFragment();
+        ViewListFragment viewListFragment = new ViewListFragment();
         dataManager = new DataManager();
         //ShowList showList;
 
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     } else if (item.getItemId() == R.id.page_2) {
                         Log.i("Add Entry", "Page 2");
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragmentContainerView, addEntryFragment)
+                                .replace(R.id.fragmentContainerView, viewListFragment)
                                 .commit();
                         return true;
                     }

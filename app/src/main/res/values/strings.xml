@@ -3,4 +3,5 @@
     <string name="text_label_1" >Add Entry</string>
     <string name="text_label_2">View List</string>
     <string name="text_label_3">Einkauf</string>
+    <string name="liste">liste</string>
 </resources>
