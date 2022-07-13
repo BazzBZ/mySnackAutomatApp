@@ -42,7 +42,7 @@ public class DBControllerLager extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase database, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase database, int version_old, int current_version) {
         String query;
         query = "DROP TABLE IF EXISTS " + tablename;
         database.execSQL(query);
