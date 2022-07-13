@@ -27,18 +27,25 @@ public class Produkt extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.products);
+        setContentView(R.layout.add_entry_fragment);
 
         btnSave = findViewById(R.id.btnSave);
 
-        txtProductCategory = findViewById(R.id.txtProductCategory);
-        txtProductName = findViewById(R.id.txtProductName);
-        txtProductPrice = findViewById(R.id.txtProductPrice);
+        txtPCat = findViewById(R.id.txtProductCategory);
+        txtPName = findViewById(R.id.txtProductName);
+        txtPPrice = findViewById(R.id.txtProductPrice);
 
-        lstProducts = findViewById(R.id.lstProducts);
+        lstProdukt = findViewById(R.id.lstProducts);
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveProduct();
+            }
+        });
 
         clear();
-        dbController = new DBController(getApplicationContext());
+        dbControllerProdukt = new DBControllerProdukt(getApplicationContext());
         setProducts();
     }
 
@@ -48,7 +55,7 @@ public class Produkt extends AppCompatActivity {
         txtPPrice.setText("");
     }
 
-    public void saveProduct(View view){
+    public void saveProduct(){
         try {
             if (dbControllerProdukt == null)
                 dbControllerProdukt = new DBControllerProdukt(getApplicationContext());

@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         AutomatViewFragment automatViewFragment = new AutomatViewFragment();
         PhotoViewFragment photoViewFragment = new PhotoViewFragment();
         dataManager = new DataManager();
-        entityDBHelper = new EntityDBHelper(this);
         //ShowList showList;
 
         BottomNavigationView bottomNavBar = findViewById(R.id.bottom_navigation_menu);

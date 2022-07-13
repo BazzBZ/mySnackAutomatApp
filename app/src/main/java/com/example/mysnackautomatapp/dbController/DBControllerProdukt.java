@@ -51,7 +51,7 @@ public class DBControllerProdukt extends SQLiteOpenHelper {
 
         ArrayList<HashMap<String, String>> productList = new ArrayList<HashMap<String, String>>();
         SQLiteDatabase database = this.getWritableDatabase();
-        Cursor cursor = database.rawQuery("SELECT * FROM " + tablename + " Join ", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM " + tablename ,null);
         if (cursor.moveToFirst()) {
             do {
 
