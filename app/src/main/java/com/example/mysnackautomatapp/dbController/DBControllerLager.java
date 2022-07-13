@@ -36,8 +36,8 @@ public class DBControllerLager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
         String query;
-        query = "CREATE TABLE IF NOT EXISTS " + tablename + "(" + productID + " integer primary key, "
-                + amount + " text, " + closestMHD + "  text )";
+        query = "CREATE TABLE IF NOT EXISTS " + tablename + "(" + amount + " text, " + closestMHD + "  text, " + productID +
+                " integer, foreign key(productID) references tblProducts(id))";
         database.execSQL(query);
     }
 

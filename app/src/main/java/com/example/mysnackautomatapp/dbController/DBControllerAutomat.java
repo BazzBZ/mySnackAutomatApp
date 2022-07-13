@@ -38,8 +38,8 @@ public class DBControllerAutomat extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
         String query;
-        query = "CREATE TABLE IF NOT EXISTS " + tablename + "(" + productID + " integer primary key, "
-                + amount + " text, " + sellPrice + " text, " + closestMHD + "  text )";
+        query = "CREATE TABLE IF NOT EXISTS " + tablename + "(" + amount + " text, " + sellPrice + " text, " + closestMHD + "  text, "
+                + productID + " integer primary key, foreign key(productID) references tblProducts(id))";
         database.execSQL(query);
     }
 

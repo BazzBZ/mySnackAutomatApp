@@ -21,7 +21,7 @@ import com.example.mysnackautomatapp.entities.Produkt;
 import java.util.HashMap;
 import java.util.List;
 
-public class AddEntryFragment extends Fragment {
+public class OverviewFragment extends Fragment {
 
     EditText txtPName, txtPCat, txtPPrice;
     ListView lstProdukt;
@@ -43,7 +43,7 @@ public class AddEntryFragment extends Fragment {
 
         Button btnSave = view.findViewById(R.id.btnSave);
 
-        txtPCat = view.findViewById(R.id.txtProductCategory);
+        /*txtPCat = view.findViewById(R.id.txtProductCategory);
         txtPName = view.findViewById(R.id.txtProductName);
         txtPPrice = view.findViewById(R.id.txtProductPrice);
 
@@ -116,6 +116,8 @@ public class AddEntryFragment extends Fragment {
 
 
 
+*/
+    }
 
     @Override
     public void onPause() {
