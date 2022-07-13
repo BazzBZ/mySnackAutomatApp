@@ -1,4 +1,6 @@
 package com.example.mysnackautomatapp.dbController;
 
-public class DBControllerFotos {
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DBControllerFotos extends SQLiteOpenHelper {
 }

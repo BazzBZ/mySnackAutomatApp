@@ -1,4 +1,4 @@
 package com.example.mysnackautomatapp.dbController;
 
-public class DBControllerLager {
+public class DBControllerLager extends SQLiteOpenHelper{
 }

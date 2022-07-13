@@ -1,4 +1,8 @@
 package com.example.mysnackautomatapp.dbController;
 
-public class DBControllerAutomat {
+import android.database.sqlite.SQLiteOpenHelper;
+
+import java.sql.SQLClientInfoException;
+
+public class DBControllerAutomat extends SQLiteOpenHelper {
 }
