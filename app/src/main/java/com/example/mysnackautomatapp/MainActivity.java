@@ -5,12 +5,15 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mysnackautomatapp.database.EntityDBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     public MainActivity() {
     }
+
+    private EntityDBHelper entityDBHelper;
 
 
     @Override
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         AutomatViewFragment automatViewFragment = new AutomatViewFragment();
         PhotoViewFragment photoViewFragment = new PhotoViewFragment();
         dataManager = new DataManager();
+        entityDBHelper = new EntityDBHelper(this);
         //ShowList showList;
 
         BottomNavigationView bottomNavBar = findViewById(R.id.bottom_navigation_menu);
