@@ -1,6 +1,7 @@
 package com.example.mysnackautomatapp;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
@@ -18,6 +19,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Size;
@@ -27,8 +29,13 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -112,7 +119,20 @@ public class PhotoViewFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 try {
-                    //activeSession.capture(builderPicture.build(),captureCallback, new Handler());
+                    EditText editText = new EditText(getContext());
+                    editText.setInputType(InputType.TYPE_CLASS_TEXT);
+                    MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(getContext());
+                    String comment;
+                    materialAlertDialogBuilder
+                            .setTitle("Comment")
+                            .setNeutralButton("Cancel", (dialog, which) -> {
+                                Toast.makeText(getContext(),"No Comment added", Toast.LENGTH_SHORT).show();
+                            })
+                            .setView(editText)
+                            .setPositiveButton("Save", (dialog, which) -> {
+                                Toast.makeText(getContext(),"Comment added", Toast.LENGTH_SHORT).show();
+                            })
+                            .show();
                     activeSession.capture(builderPicture.build(),null, new Handler());
                 } catch (CameraAccessException e){
                     Log.e(TAG, "takePicture()", e);
