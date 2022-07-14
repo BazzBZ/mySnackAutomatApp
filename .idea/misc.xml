@@ -3,7 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Yannick/Documents/GitHub/mySnackAutomatApp/app/src/main/res/layout/activity_main.xml" value="0.28541666666666665" />
         <entry key="..\:/Users/Yannick/Documents/GitHub/mySnackAutomatApp/app/src/main/res/layout/add_entry_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Yannick/Documents/GitHub/mySnackAutomatApp/app/src/main/res/layout/automat_view_fragment.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Yannick/Documents/GitHub/mySnackAutomatApp/app/src/main/res/layout/automat_view_fragment_test.xml" value="0.33" />
+        <entry key="..\:/Users/Yannick/Documents/GitHub/mySnackAutomatApp/app/src/main/res/layout/fragment_blank.xml" value="0.28541666666666665" />
+        <entry key="..\:/Users/Yannick/Documents/GitHub/mySnackAutomatApp/app/src/main/res/layout/lager_view_fragment.xml" value="0.27943840579710144" />
+        <entry key="..\:/Users/Yannick/Documents/GitHub/mySnackAutomatApp/app/src/main/res/layout/lst_template.xml" value="0.28541666666666665" />
+        <entry key="..\:/Users/Yannick/Documents/GitHub/mySnackAutomatApp/app/src/main/res/layout/photo_view_fragment.xml" value="0.28541666666666665" />
         <entry key="..\:/Users/Yannick/Documents/GitHub/mySnackAutomatApp/app/src/main/res/layout/view_list_fragment.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/batuh/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.15121580547112462" />
         <entry key="..\:/Users/batuh/Desktop/AppDev/SnackAutomat/mySnackAutomatApp/app/src/main/res/drawable/ic_add_photo.xml" value="0.347" />

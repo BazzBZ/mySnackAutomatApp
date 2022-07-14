@@ -10,13 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.mysnackautomatapp.dbController.DBControllerProdukt;
-import com.example.mysnackautomatapp.entities.Produkt;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +28,7 @@ public class LagerViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
 
-        return inflater.inflate(R.layout.view_list_fragment, container, false);
+        return inflater.inflate(R.layout.lager_view_fragment, container, false);
     }
 
     @Override
