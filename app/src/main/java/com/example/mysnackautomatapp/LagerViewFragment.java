@@ -16,14 +16,14 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.mysnackautomatapp.dbController.DBControllerProdukt;
-import com.example.mysnackautomatapp.entities.Produkt;
+
 
 import java.util.HashMap;
 import java.util.List;
 
 public class LagerViewFragment extends Fragment {
 
-    EditText txtPName, txtPCat, txtPPrice, txtPMHD;
+    EditText txtPName, txtPCat, txtPPrice, txtPMHD, txtPAmount;
     ListView lstProdukt;
     DBControllerProdukt dbControllerProdukt;
 
@@ -43,7 +43,8 @@ public class LagerViewFragment extends Fragment {
         txtPCat = view.findViewById(R.id.txtProductCategory);
         txtPName = view.findViewById(R.id.txtProductName);
         txtPPrice = view.findViewById(R.id.txtProductPrice);
-        txtPMHD = view.findViewById(R.id.txtPMHD);
+        txtPMHD = view.findViewById(R.id.txtProductMHD);
+        txtPAmount = view.findViewById(R.id.txtProductBestand);
 
         lstProdukt = view.findViewById(R.id.lstProducts);
 
@@ -61,18 +62,19 @@ public class LagerViewFragment extends Fragment {
 
     }
 
-    public void saveProduct(){
+    public void saveProduct() {
         try {
             if (dbControllerProdukt == null)
                 dbControllerProdukt = new DBControllerProdukt(getContext().getApplicationContext());
             if (TextUtils.isEmpty(txtPCat.getText().toString()) ||
                     TextUtils.isEmpty(txtPName.getText().toString()) ||
-                    TextUtils.isEmpty(txtPPrice.getText().toString())) {
+                    TextUtils.isEmpty(txtPPrice.getText().toString()) ||
+                    TextUtils.isEmpty(txtPMHD.getText().toString())) {
                 Toast.makeText(getContext(), "Please enter product name, its category & price to save", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            boolean result = dbControllerProdukt.addProduct(txtPName.getText().toString(), txtPCat.getText().toString(), txtPPrice.getText().toString(), txtPMHD.getText().toString());
+            boolean result = dbControllerProdukt.addProduct(txtPName.getText().toString(), txtPCat.getText().toString(), txtPPrice.getText().toString(), txtPMHD.getText().toString(),txtPAmount.getText().toString());
             if (result) {
                 clear();
                 Toast.makeText(getContext(), "Product saved successfully", Toast.LENGTH_SHORT).show();
@@ -85,24 +87,30 @@ public class LagerViewFragment extends Fragment {
         }
     }
 
-    public void clear(){
+    public void clear() {
         txtPName.setText("");
         txtPCat.setText("");
         txtPPrice.setText("");
+        txtPAmount.setText("");
+        txtPAmount.setText("");
     }
 
     public void setProducts() {
         try {
-            if(dbControllerProdukt == null)
+            if (dbControllerProdukt == null)
                 dbControllerProdukt = new DBControllerProdukt(getContext().getApplicationContext());
 
             List<HashMap<String, String>> data = dbControllerProdukt.getProducts();
             if (data.size() != 0) {
                 SimpleAdapter adapter = new SimpleAdapter(
                         getContext(), data, R.layout.lst_template,
-                        new String[]{"id", "Prdouktname", "Kategorie", "Preis", "MHD"}, new int[]{
-                        R.id.lblId,R.id.lblName,
-                        R.id.lblCategory, R.id.lblPrice, R.id.lblMHD});
+                        new String[]{"id", "product", "category","amount" , "price", "mhd"}, new int[]{
+                        R.id.lblId,
+                        R.id.lblName,
+                        R.id.lblCategory,
+                        R.id.lblAmount,
+                        R.id.lblPrice,
+                        R.id.lblMHD});
 
 
                 lstProdukt.setAdapter(adapter);
@@ -112,8 +120,6 @@ public class LagerViewFragment extends Fragment {
             Toast.makeText(getContext(), ex.getMessage().toString(), Toast.LENGTH_LONG).show();
         }
     }
-
-
 
 
     @Override

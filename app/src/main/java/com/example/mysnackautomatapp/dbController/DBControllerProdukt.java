@@ -18,12 +18,13 @@ public class DBControllerProdukt extends SQLiteOpenHelper {
     private static final String product = "product"; // column name
     private static final String id = "ID"; // auto generated ID column
     private static final String category = "category"; // column name
-    private static final String mhd = "closest_mhd"; // column name
+    private static final String amount = "amount"; // column name
     private static final String price = "price";
-    private static final String amount = "bestand";
+    private static final String mhd = "mhd";
+    //private static final String amount = "amount";
 
     private static final String databasename = "dbProducts"; // Dtabasename
-    private static final int versioncode = 1; //versioncode of the database
+    private static final int versioncode = 4; //versioncode of the database
 
     public DBControllerProdukt(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -37,7 +38,7 @@ public class DBControllerProdukt extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         String query;
         query = "CREATE TABLE IF NOT EXISTS " + tablename + "(" + id + " integer primary key, "
-                + product + " text, " + category + " text, " + amount + "  text, " + mhd +  " text, " + price +  "  text )";
+                + product + " text, " + category + " text, " + amount + " text , " + price + "  text, " + mhd + " text )";
         database.execSQL(query);
 
 
@@ -64,9 +65,9 @@ public class DBControllerProdukt extends SQLiteOpenHelper {
                 map.put("id", cursor.getString(0));
                 map.put("product", cursor.getString(1));
                 map.put("category", cursor.getString(2));
-                map.put("price", cursor.getString(3));
-                map.put("mhd", cursor.getString(4));
-                map.put("bestand", cursor.getString(5));
+                map.put("amount", cursor.getString(3));
+                map.put("price", cursor.getString(4));
+                map.put("mhd", cursor.getString(5));
                 productList.add(map);
             } while (cursor.moveToNext());
         }
@@ -78,14 +79,15 @@ public class DBControllerProdukt extends SQLiteOpenHelper {
         return productList;
     }
 
-    public boolean addProduct(String productName, String productCategory, String productPrice, String mhdDate) {
+    public boolean addProduct(String productName, String productCategory, String productPrice, String mhdDate, String amountLeft) {
         try {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues cv = new ContentValues();
             cv.put(product, productName);
             cv.put(category, productCategory);
-            cv.put(mhd, mhdDate);
             cv.put(price, productPrice);
+            cv.put(amount, amountLeft);
+            cv.put(mhd, mhdDate);
             db.insert(tablename, null, cv);
             db.close();
 

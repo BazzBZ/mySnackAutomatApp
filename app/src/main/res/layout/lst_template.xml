@@ -3,12 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_columnSpan="1"
-    android:layout_gravity="left"
-    android:gravity="left"
     android:orientation="horizontal"
-    android:padding="8dp"
-    android:weightSum="8">
+    android:padding="2dp"
+    android:layout_columnSpan="1"
+    android:weightSum="7">
 
     <TextView
         android:id="@+id/lblId"
@@ -20,24 +18,32 @@
         android:id="@+id/lblName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2.5" />
+        android:layout_weight="1.5" />
 
     <TextView
         android:id="@+id/lblCategory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2.5" />
+        android:layout_weight="1.5" />
 
     <TextView
+        android:id="@+id/lblAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:id="@+id/lblPrice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_weight="1"/>
 
     <TextView
-        android:id="@+id/lblMHD"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:id="@+id/lblMHD"
+        android:layout_weight="1"/>
+
+
 
 </LinearLayout>

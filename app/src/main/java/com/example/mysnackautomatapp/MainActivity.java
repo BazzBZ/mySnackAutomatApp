@@ -41,12 +41,6 @@ public class MainActivity extends AppCompatActivity {
         dataManager = new DataManager();
         //ShowList showList;
 
-        dbControllerLager = new DBControllerLager(this);
-        dbControllerProdukt = new DBControllerProdukt(this);
-        dbControllerAutomat = new DBControllerAutomat(this);
-        dbControllerEinkauf = new DBControllerEinkauf(this);
-        dbControllerVerkauf = new DBControllerVerkauf(this);
-
 
 
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +8,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="5dp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -18,16 +17,14 @@
 
             <TextView
                 android:layout_height="wrap_content"
-                android:text="Name" />
+                android:layout_weight="1"
+                android:text="Product Name" />
 
             <EditText
                 android:id="@+id/txtProductName"
                 android:layout_height="wrap_content"
-                android:layout_weight="5" />
-
-
+                android:layout_weight="4" />
         </TableRow>
-
 
         <TableRow
             android:layout_width="match_parent"
@@ -36,12 +33,13 @@
 
             <TextView
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Product Category" />
 
             <EditText
                 android:id="@+id/txtProductCategory"
                 android:layout_height="wrap_content"
-                android:layout_weight="5" />
+                android:layout_weight="4" />
         </TableRow>
 
         <TableRow
@@ -49,108 +47,125 @@
             android:layout_height="wrap_content"
             android:weightSum="5">
 
-
             <TextView
                 android:layout_height="wrap_content"
-                android:text="Price" />
+                android:layout_weight="1"
+                android:text="Bestand" />
 
             <EditText
-                android:id="@+id/txtProductPrice"
+                android:id="@+id/txtProductBestand"
+                android:inputType="numberDecimal"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:inputType="date" />
+                android:layout_weight="4" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:weightSum="5">
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter MHD" />
+                android:layout_weight="1"
+                android:text="Price" />
 
             <EditText
-                android:id="@+id/txtPMHD"
+                android:id="@+id/txtProductPrice"
+                android:inputType="numberDecimal"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:inputType="date" />
+                android:layout_weight="4" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="MHD" />
+
+            <EditText
+                android:id="@+id/txtProductMHD"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_weight="4" />
         </TableRow>
 
     </TableLayout>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_gravity="center"
+        android:layout_width="wrap_content"
         android:layout_margin="5dp"
+        android:layout_gravity="center"
         android:text="SAVE" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_columnSpan="1"
-        android:background="@color/colorPrimary"
         android:orientation="horizontal"
         android:padding="4dp"
+        android:background="@color/colorPrimary"
+        android:layout_columnSpan="1"
         android:weightSum="8">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
             android:text="ID"
             android:textColor="@color/colorWhite" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="2.5"
-            android:gravity="center"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="4dp"
-            android:text="Produktname"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="NAME"
             android:textColor="@color/colorWhite" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="CATEGORY"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:paddingHorizontal="4dp"
-            android:paddingVertical="4dp"
-            android:text="Bestand"
-            android:textColor="@color/colorWhite" />
+            android:text="Amount"
+            android:textColor="@color/colorWhite"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="Preis"
-            android:textColor="@color/colorWhite" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:text="PRICE"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="MHD"
-            android:textColor="@color/colorWhite" />
-
+            android:textColor="@color/colorWhite"/>
 
     </LinearLayout>
-
     <ListView
         android:id="@+id/lstProducts"
+        android:padding="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:padding="2dp">
+        android:layout_alignParentLeft="true">
 
     </ListView>
 
