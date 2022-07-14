@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mysnackautomatapp.database.EntityDBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,12 +13,14 @@ public class MainActivity extends AppCompatActivity {
     public MainActivity() {
     }
 
+    private EntityDBHelper entityDBHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AddEntryFragment addEntryFragment = new AddEntryFragment();
+        OverviewFragment overviewFragment = new OverviewFragment();
         LagerViewFragment lagerViewFragment = new LagerViewFragment();
         AutomatViewFragment automatViewFragment = new AutomatViewFragment();
         PhotoViewFragment photoViewFragment = new PhotoViewFragment();
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                     if (item.getItemId() == R.id.page_1) {
                         Log.i("Main Activity", "Page 1");
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragmentContainerView, addEntryFragment)
+                                .replace(R.id.fragmentContainerView, overviewFragment)
                                 .commit();
                         return true;
 
