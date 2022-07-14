@@ -16,7 +16,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.mysnackautomatapp.dbController.DBControllerProdukt;
-import com.example.mysnackautomatapp.entities.Produkt;
+
 
 import java.util.HashMap;
 import java.util.List;

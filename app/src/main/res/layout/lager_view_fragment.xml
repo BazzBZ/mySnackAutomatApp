@@ -51,6 +51,23 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="Bestand" />
+
+            <EditText
+                android:id="@+id/txtProductBestand"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_weight="4" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Price" />
 
             <EditText
@@ -60,7 +77,28 @@
                 android:layout_weight="4" />
         </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="MHD" />
+
+            <EditText
+                android:id="@+id/txtProductMHD"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_weight="4" />
+        </TableRow>
+
     </TableLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btnSave"
@@ -78,31 +116,49 @@
         android:background="@color/colorPrimary"
         android:layout_columnSpan="1"
         android:weightSum="8">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="ID"
-            android:textColor="@color/colorWhite"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="NAME"
-            android:textColor="@color/colorWhite"
-            android:layout_weight="3"/>
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CATEGORY"
-            android:textColor="@color/colorWhite"
-            android:layout_weight="3"/>
+            android:layout_weight="1"
+            android:text="ID"
+            android:textColor="@color/colorWhite" />
+
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="NAME"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="CATEGORY"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Amount"
+            android:textColor="@color/colorWhite"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="PRICE"
-            android:textColor="@color/colorWhite"
-            android:layout_weight="1"/>
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="MHD"
+            android:textColor="@color/colorWhite"/>
 
     </LinearLayout>
     <ListView
