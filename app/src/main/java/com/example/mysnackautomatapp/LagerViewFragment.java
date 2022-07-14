@@ -23,14 +23,14 @@ import java.util.List;
 
 public class LagerViewFragment extends Fragment {
 
-    EditText txtPName, txtPCat, txtPPrice;
+    EditText txtPName, txtPCat, txtPPrice, txtPMHD;
     ListView lstProdukt;
     DBControllerProdukt dbControllerProdukt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
 
-        return inflater.inflate(R.layout.view_list_fragment, container, false);
+        return inflater.inflate(R.layout.lager_view_fragment, container, false);
     }
 
     @Override
@@ -46,6 +46,7 @@ public class LagerViewFragment extends Fragment {
         txtPCat = view.findViewById(R.id.txtProductCategory);
         txtPName = view.findViewById(R.id.txtProductName);
         txtPPrice = view.findViewById(R.id.txtProductPrice);
+        txtPMHD = view.findViewById(R.id.txtPMHD);
 
         lstProdukt = view.findViewById(R.id.lstProducts);
 
@@ -74,7 +75,7 @@ public class LagerViewFragment extends Fragment {
                 return;
             }
 
-            boolean result = dbControllerProdukt.addProduct(txtPName.getText().toString(), txtPCat.getText().toString(), txtPPrice.getText().toString());
+            boolean result = dbControllerProdukt.addProduct(txtPName.getText().toString(), txtPCat.getText().toString(), txtPPrice.getText().toString(), txtPMHD.getText().toString());
             if (result) {
                 clear();
                 Toast.makeText(getContext(), "Product saved successfully", Toast.LENGTH_SHORT).show();
@@ -102,9 +103,9 @@ public class LagerViewFragment extends Fragment {
             if (data.size() != 0) {
                 SimpleAdapter adapter = new SimpleAdapter(
                         getContext(), data, R.layout.lst_template,
-                        new String[]{"id", "product", "category", "price"}, new int[]{
+                        new String[]{"id", "Prdouktname", "Kategorie", "Preis", "MHD"}, new int[]{
                         R.id.lblId,R.id.lblName,
-                        R.id.lblCategory, R.id.lblPrice});
+                        R.id.lblCategory, R.id.lblPrice, R.id.lblMHD});
 
                 lstProdukt.setAdapter(adapter);
             }

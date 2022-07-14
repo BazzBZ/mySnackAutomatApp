@@ -1,5 +1,6 @@
 package com.example.mysnackautomatapp.entities;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,9 +21,10 @@ import java.util.List;
 public class Produkt extends AppCompatActivity {
 
     Button btnSave;
-    EditText txtPName, txtPCat, txtPPrice;
+    EditText txtPName, txtPCat, txtPPrice, txtPMHD;
     DBControllerProdukt dbControllerProdukt;
     ListView lstProdukt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class Produkt extends AppCompatActivity {
         txtPCat = findViewById(R.id.txtProductCategory);
         txtPName = findViewById(R.id.txtProductName);
         txtPPrice = findViewById(R.id.txtProductPrice);
+        txtPMHD = findViewById(R.id.txtPMHD);
 
         lstProdukt = findViewById(R.id.lstProducts);
 
@@ -53,6 +56,8 @@ public class Produkt extends AppCompatActivity {
         txtPName.setText("");
         txtPCat.setText("");
         txtPPrice.setText("");
+        txtPMHD.setText("");
+
     }
 
     public void saveProduct(){
@@ -61,12 +66,13 @@ public class Produkt extends AppCompatActivity {
                 dbControllerProdukt = new DBControllerProdukt(getApplicationContext());
             if (TextUtils.isEmpty(txtPCat.getText().toString()) ||
                     TextUtils.isEmpty(txtPName.getText().toString()) ||
-                    TextUtils.isEmpty(txtPPrice.getText().toString())) {
+                    TextUtils.isEmpty(txtPPrice.getText().toString()) ||
+                    TextUtils.isEmpty(txtPMHD.getText().toString())) {
                 Toast.makeText(Produkt.this, "Please enter product name, its category & price to save", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            boolean result = dbControllerProdukt.addProduct(txtPName.getText().toString(), txtPCat.getText().toString(), txtPPrice.getText().toString());
+            boolean result = dbControllerProdukt.addProduct(txtPName.getText().toString(), txtPCat.getText().toString(), txtPPrice.getText().toString(), txtPMHD.getText().toString());
             if (result) {
                 clear();
                 Toast.makeText(Produkt.this, "Product saved successfully", Toast.LENGTH_SHORT).show();

@@ -18,7 +18,9 @@ public class DBControllerProdukt extends SQLiteOpenHelper {
     private static final String product = "product"; // column name
     private static final String id = "ID"; // auto generated ID column
     private static final String category = "category"; // column name
+    private static final String mhd = "closest_mhd"; // column name
     private static final String price = "price";
+
     private static final String databasename = "dbProducts"; // Dtabasename
     private static final int versioncode = 1; //versioncode of the database
 
@@ -34,8 +36,10 @@ public class DBControllerProdukt extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
         String query;
         query = "CREATE TABLE IF NOT EXISTS " + tablename + "(" + id + " integer primary key, "
-                + product + " text, " + category + " text, " + price + "  text )";
+                + product + " text, " + category + " text, " + "  text, " + price + " text, " +  mhd + "  text )";
         database.execSQL(query);
+
+
     }
 
     @Override
@@ -57,9 +61,10 @@ public class DBControllerProdukt extends SQLiteOpenHelper {
 
                 HashMap<String, String> map = new HashMap<String, String>();
                 map.put("id", cursor.getString(0));
-                map.put("product", cursor.getString(1));
-                map.put("category", cursor.getString(2));
-                map.put("price", cursor.getString(3));
+                map.put("Prdouktname", cursor.getString(1));
+                map.put("Kategorie", cursor.getString(2));
+                map.put("Preis", cursor.getString(3));
+                map.put("MHD", cursor.getString(3));
                 productList.add(map);
             } while (cursor.moveToNext());
         }
@@ -71,12 +76,13 @@ public class DBControllerProdukt extends SQLiteOpenHelper {
         return productList;
     }
 
-    public boolean addProduct(String productName, String productCategory, String productPrice) {
+    public boolean addProduct(String productName, String productCategory, String productPrice, String mhdDate) {
         try {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues cv = new ContentValues();
             cv.put(product, productName);
             cv.put(category, productCategory);
+            cv.put(mhd, mhdDate);
             cv.put(price, productPrice);
             db.insert(tablename, null, cv);
             db.close();
