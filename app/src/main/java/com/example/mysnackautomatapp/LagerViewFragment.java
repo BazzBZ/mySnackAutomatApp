@@ -38,9 +38,6 @@ public class LagerViewFragment extends Fragment {
         super.onViewCreated(view, bundle);
         Log.d("LagerViewFragment", "onViewCreated");
 
-        view.findViewById(R.id.btnSave);
-        view.findViewById(R.id.btnSave);
-
         Button btnSave = view.findViewById(R.id.btnSave);
 
         txtPCat = view.findViewById(R.id.txtProductCategory);
@@ -106,6 +103,7 @@ public class LagerViewFragment extends Fragment {
                         new String[]{"id", "Prdouktname", "Kategorie", "Preis", "MHD"}, new int[]{
                         R.id.lblId,R.id.lblName,
                         R.id.lblCategory, R.id.lblPrice, R.id.lblMHD});
+
 
                 lstProdukt.setAdapter(adapter);
             }

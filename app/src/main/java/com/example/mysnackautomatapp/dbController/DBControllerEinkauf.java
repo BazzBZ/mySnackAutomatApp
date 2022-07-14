@@ -10,6 +10,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.mysnackautomatapp.MainActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -35,11 +37,16 @@ public class DBControllerEinkauf extends SQLiteOpenHelper {
         super(context, name, version, openParams);
     }
 
+    public DBControllerEinkauf(Context context) {
+        super(context,databasename,null,1);
+        }
+
+
     @Override
     public void onCreate(SQLiteDatabase database) {
         String query;
-        query = "CREATE TABLE IF NOT EXISTS " + tablename + "(" + kaufID + " integer primary key, "
-                + productID + " integer, " + amount + "  text," + price + "  text," + buyDate + "  text )";
+        query = "CREATE TABLE IF NOT EXISTS " + tablename + "(" + kaufID + " integerer primary key, " + amount + " text, "
+                + price + "  text, " + buyDate + " text, " + productID + " integer, foreign key(productID) references tblProducts(id))";
         database.execSQL(query);
     }
 
@@ -61,10 +68,10 @@ public class DBControllerEinkauf extends SQLiteOpenHelper {
 
                 HashMap<String, String> map = new HashMap<String, String>();
                 map.put("kaufID", cursor.getString(0));
-                map.put("productID", cursor.getString(1));
-                map.put("amount", cursor.getString(2));
-                map.put("price", cursor.getString(3));
-                map.put("buyDate", cursor.getString(4));
+                map.put("amount", cursor.getString(1));
+                map.put("price", cursor.getString(2));
+                map.put("buyDate", cursor.getString(3));
+                map.put("productID", cursor.getString(4));
                 buyList.add(map);
             } while (cursor.moveToNext());
         }

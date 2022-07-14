@@ -9,21 +9,21 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:padding="10dp">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:weightSum="5">
 
             <TextView
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Product Name" />
+                android:text="Name" />
 
             <EditText
                 android:id="@+id/txtProductName"
-                android:layout_height="match_parent"
-                android:layout_weight="4" />
+                android:layout_height="wrap_content"
+                android:layout_weight="5" />
 
 
         </TableRow>
@@ -36,13 +36,12 @@
 
             <TextView
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="Product Category" />
 
             <EditText
                 android:id="@+id/txtProductCategory"
                 android:layout_height="wrap_content"
-                android:layout_weight="4" />
+                android:layout_weight="5" />
         </TableRow>
 
         <TableRow
@@ -53,20 +52,18 @@
 
             <TextView
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="Price" />
 
             <EditText
                 android:id="@+id/txtProductPrice"
-                android:layout_width="288dp"
                 android:layout_height="wrap_content"
-                android:ems="10"
+                android:layout_weight="5"
                 android:inputType="date" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:weightSum="5">
 
             <TextView
@@ -78,8 +75,8 @@
             <EditText
                 android:id="@+id/txtPMHD"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:inputType="numberDecimal" />
+                android:layout_weight="5"
+                android:inputType="date" />
         </TableRow>
 
     </TableLayout>

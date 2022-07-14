@@ -95,7 +95,7 @@ public class Produkt extends AppCompatActivity {
             if (data.size() != 0) {
                 SimpleAdapter adapter = new SimpleAdapter(
                         Produkt.this, data, R.layout.lst_template,
-                        new String[]{"id", "product", "category", "price"}, new int[]{
+                        new String[]{"id", "Produktname", "K", "price"}, new int[]{
                         R.id.lblId,R.id.lblName,
                         R.id.lblCategory, R.id.lblPrice});
 

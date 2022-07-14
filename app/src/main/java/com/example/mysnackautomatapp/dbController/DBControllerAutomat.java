@@ -10,6 +10,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.mysnackautomatapp.MainActivity;
+
 import java.sql.SQLClientInfoException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,9 +25,10 @@ public class DBControllerAutomat extends SQLiteOpenHelper {
     private static final String databasename = "dbProducts"; // Dtabasename
     private static final int versioncode = 1; //versioncode of the database
 
-    public DBControllerAutomat(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public DBControllerAutomat(Context context){
+        super(context,databasename,null,1);
     }
+
 
     public DBControllerAutomat(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version, @Nullable DatabaseErrorHandler errorHandler) {
         super(context, name, factory, version, errorHandler);
@@ -34,6 +37,7 @@ public class DBControllerAutomat extends SQLiteOpenHelper {
     public DBControllerAutomat(@Nullable Context context, @Nullable String name, int version, @NonNull SQLiteDatabase.OpenParams openParams) {
         super(context, name, version, openParams);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase database) {

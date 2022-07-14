@@ -1,17 +1,31 @@
 package com.example.mysnackautomatapp;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mysnackautomatapp.database.EntityDBHelper;
+import com.example.mysnackautomatapp.dbController.DBControllerAutomat;
+import com.example.mysnackautomatapp.dbController.DBControllerEinkauf;
+import com.example.mysnackautomatapp.dbController.DBControllerFotos;
+import com.example.mysnackautomatapp.dbController.DBControllerLager;
+import com.example.mysnackautomatapp.dbController.DBControllerProdukt;
+import com.example.mysnackautomatapp.dbController.DBControllerVerkauf;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     public MainActivity() {
     }
+
+    DBControllerLager dbControllerLager;
+    DBControllerProdukt dbControllerProdukt;
+    DBControllerAutomat dbControllerAutomat;
+    DBControllerEinkauf dbControllerEinkauf;
+    DBControllerFotos dbControllerFotos;
+    DBControllerVerkauf dbControllerVerkauf;
 
     private EntityDBHelper entityDBHelper;
 
@@ -26,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
         PhotoViewFragment photoViewFragment = new PhotoViewFragment();
         dataManager = new DataManager();
         //ShowList showList;
+
+        dbControllerLager = new DBControllerLager(this);
+        dbControllerProdukt = new DBControllerProdukt(this);
+        dbControllerAutomat = new DBControllerAutomat(this);
+        dbControllerEinkauf = new DBControllerEinkauf(this);
+        dbControllerVerkauf = new DBControllerVerkauf(this);
+
+
+
 
         BottomNavigationView bottomNavBar = findViewById(R.id.bottom_navigation_menu);
         bottomNavBar.setOnItemSelectedListener(item -> {
