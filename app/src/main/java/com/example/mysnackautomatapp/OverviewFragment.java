@@ -10,27 +10,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.mysnackautomatapp.dbController.DBControllerProdukt;
-
+import com.example.mysnackautomatapp.dbController.DBControllerLager;
 
 import java.util.HashMap;
 import java.util.List;
 
 public class OverviewFragment extends Fragment {
 
-    EditText txtPName, txtPCat, txtPPrice;
-    ListView lstProdukt;
-    DBControllerProdukt dbControllerProdukt;
+    EditText txtProdName, txtProdCat;
+    ListView lstProduktLager;
+    DBControllerLager dbControllerLager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
 
-        return inflater.inflate(R.layout.add_entry_fragment, container, false);
+        return inflater.inflate(R.layout.add_product_fragment, container, false);
     }
 
     @Override
@@ -38,43 +36,41 @@ public class OverviewFragment extends Fragment {
         super.onViewCreated(view, bundle);
         Log.d("AddEntryFragment", "onViewCreated");
 
-        view.findViewById(R.id.btnSave);
-        view.findViewById(R.id.btnSave);
+        view.findViewById(R.id.btnSaveProducts);
+        view.findViewById(R.id.btnSaveProducts);
 
-        Button btnSave = view.findViewById(R.id.btnSave);
+        lstProduktLager = view.findViewById(R.id.lstPProducts);
 
-        /*txtPCat = view.findViewById(R.id.txtProductCategory);
-        txtPName = view.findViewById(R.id.txtProductName);
-        txtPPrice = view.findViewById(R.id.txtProductPrice);
+        Button btnSaveProduct = view.findViewById(R.id.btnSaveProducts);
 
-        lstProdukt = view.findViewById(R.id.lstProducts);
+        txtProdName = view.findViewById(R.id.txtProdName);
+        txtProdCat = view.findViewById(R.id.txtProdCat);
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        btnSaveProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveProduct();
+                saveLagerProducts();
+
+
             }
         });
 
         clear();
-        dbControllerProdukt = new DBControllerProdukt(getContext().getApplicationContext());
-        setProducts();
-
-
+        dbControllerLager = new DBControllerLager(getContext().getApplicationContext());
+        saveLagerProducts();
     }
 
-    public void saveProduct(){
+    public void saveLagerProducts() {
         try {
-            if (dbControllerProdukt == null)
-                dbControllerProdukt = new DBControllerProdukt(getContext().getApplicationContext());
-            if (TextUtils.isEmpty(txtPCat.getText().toString()) ||
-                    TextUtils.isEmpty(txtPName.getText().toString()) ||
-                    TextUtils.isEmpty(txtPPrice.getText().toString())) {
-                Toast.makeText(getContext(), "Please enter product name, its category & price to save", Toast.LENGTH_SHORT).show();
+            if (dbControllerLager == null)
+                dbControllerLager = new DBControllerLager(getContext().getApplicationContext());
+            if (TextUtils.isEmpty(txtProdName.getText().toString()) ||
+                    TextUtils.isEmpty(txtProdCat.getText().toString())) {
+                Toast.makeText(getContext(), "Please enter product name and the respective category to save", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            boolean result = dbControllerProdukt.addProduct(txtPName.getText().toString(), txtPCat.getText().toString(), txtPPrice.getText().toString());
+            boolean result = dbControllerLager.addLagerProduct(txtProdName.getText().toString(), txtProdCat.getText().toString());
             if (result) {
                 clear();
                 Toast.makeText(getContext(), "Product saved successfully", Toast.LENGTH_SHORT).show();
@@ -87,26 +83,27 @@ public class OverviewFragment extends Fragment {
         }
     }
 
-    public void clear(){
-            txtPName.setText("");
-            txtPCat.setText("");
-            txtPPrice.setText("");
+    public void clear() {
+        txtProdCat.setText("");
+        txtProdName.setText("");
     }
 
     public void setProducts() {
         try {
-            if(dbControllerProdukt == null)
-                dbControllerProdukt = new DBControllerProdukt(getContext().getApplicationContext());
+            if (dbControllerLager == null)
+                dbControllerLager = new DBControllerLager(getContext().getApplicationContext());
 
-            List<HashMap<String, String>> data = dbControllerProdukt.getProducts();
+            List<HashMap<String, String>> data = dbControllerLager.getLagerProducts();
             if (data.size() != 0) {
                 SimpleAdapter adapter = new SimpleAdapter(
                         getContext(), data, R.layout.lst_template,
-                        new String[]{"id", "product", "category", "price"}, new int[]{
-                        R.id.lblId,R.id.lblName,
-                        R.id.lblCategory, R.id.lblPrice});
+                        new String[]{"id", "name", "category"}, new int[]{
+                        R.id.labelID,
+                        R.id.labelName,
+                        R.id.labelCat});
 
-                lstProdukt.setAdapter(adapter);
+
+                lstProduktLager.setAdapter(adapter);
             }
 
         } catch (Exception ex) {
@@ -114,10 +111,6 @@ public class OverviewFragment extends Fragment {
         }
     }
 
-
-
-*/
-    }
 
     @Override
     public void onPause() {

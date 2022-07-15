@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
         BottomNavigationView bottomNavBar = findViewById(R.id.bottom_navigation_menu);
         bottomNavBar.setOnItemSelectedListener(item -> {
                     if (item.getItemId() == R.id.page_1) {

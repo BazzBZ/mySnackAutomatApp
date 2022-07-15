@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DBControllerProdukt extends SQLiteOpenHelper {
-    private static final String tablename = "tblProducts"; // tablename
+    private static final String tablename = "tblProducts";
+    //private static final String tablenameLager = "tblProducts";// tablename
     private static final String product = "product"; // column name
     private static final String id = "ID"; // auto generated ID column
     private static final String category = "category"; // column name
@@ -24,11 +25,8 @@ public class DBControllerProdukt extends SQLiteOpenHelper {
     //private static final String amount = "amount";
 
     private static final String databasename = "dbProducts"; // Dtabasename
-    private static final int versioncode = 4; //versioncode of the database
+    private static final int versioncode = 6; //versioncode of the database
 
-    public DBControllerProdukt(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-    }
 
     public DBControllerProdukt(Context context) {
         super(context, databasename, null, versioncode);
@@ -52,6 +50,7 @@ public class DBControllerProdukt extends SQLiteOpenHelper {
         database.execSQL(query);
         onCreate(database);
     }
+
 
     public ArrayList<HashMap<String, String>> getProducts() {
 

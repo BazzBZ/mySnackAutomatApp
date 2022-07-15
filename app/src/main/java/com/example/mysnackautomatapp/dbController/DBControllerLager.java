@@ -16,55 +16,53 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DBControllerLager extends SQLiteOpenHelper {
-    private static final String tablename = "tblLagerProducts"; // tablename
-    private static final String productID = "productID"; // column name
-    private static final String amount = "amount"; // auto generated ID column
-    private static final String closestMHD = "closestMHD"; // column name
+    private static final String tablenameLager = "tblLagerProducts"; // tablename
+    private static final String id = "id"; // tablename
+    //private static final String productID = "productID"; // column name
+    private static final String name = "name"; // auto generated ID column
+    private static final String category = "category"; // column name
+
+
     private static final String databasename = "dbProducts"; // Dtabasename
-    private static final int versioncode = 1; //versioncode of the database
+    private static final int versioncode = 6; //versioncode of the database
+    //private static final String amount = "amount";
 
- public DBControllerLager(Context context){
-     super(context,databasename,null,1);
- }
 
-    public DBControllerLager(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version, @Nullable DatabaseErrorHandler errorHandler) {
-        super(context, name, factory, version, errorHandler);
+
+    public DBControllerLager(Context context) {
+        super(context, databasename, null, versioncode);
     }
-
-    public DBControllerLager(@Nullable Context context, @Nullable String name, int version, @NonNull SQLiteDatabase.OpenParams openParams) {
-        super(context, name, version, openParams);
-    }
-
-
 
     @Override
     public void onCreate(SQLiteDatabase database) {
         String query;
-        query = "CREATE TABLE IF NOT EXISTS " + tablename + "(" + amount + " text, " + closestMHD + "  text, " + productID +
-                " integer, foreign key(productID) references tblProducts(id))";
+        query = "CREATE TABLE IF NOT EXISTS " + tablenameLager + "(" + id + "integer primary key, " +  name + " text, " + category + "  text )";
         database.execSQL(query);
+
+
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase database, int version_old, int current_version) {
+    public void onUpgrade(SQLiteDatabase database, int version_old,
+                          int current_version) {
         String query;
-        query = "DROP TABLE IF EXISTS " + tablename;
+        query = "DROP TABLE IF EXISTS " + tablenameLager;
         database.execSQL(query);
         onCreate(database);
     }
+
 
     public ArrayList<HashMap<String, String>> getLagerProducts() {
 
         ArrayList<HashMap<String, String>> productLagerList = new ArrayList<HashMap<String, String>>();
         SQLiteDatabase database = this.getWritableDatabase();
-        Cursor cursor = database.rawQuery("SELECT * FROM " + tablename ,null);
+        Cursor cursor = database.rawQuery("SELECT * FROM " + tablenameLager ,null);
         if (cursor.moveToFirst()) {
             do {
-
                 HashMap<String, String> map = new HashMap<String, String>();
-                map.put("productID", cursor.getString(0));
-                map.put("amount", cursor.getString(1));
-                map.put("closestMHD", cursor.getString(2));
+                map.put("id", cursor.getString(0));
+                map.put("name", cursor.getString(1));
+                map.put("category", cursor.getString(2));
                 productLagerList.add(map);
             } while (cursor.moveToNext());
         }
@@ -76,13 +74,14 @@ public class DBControllerLager extends SQLiteOpenHelper {
         return productLagerList;
     }
 
-    public boolean addLagerProduct(String productAmount, String productMHD) {
+
+    public boolean addLagerProduct(String productName, String productCat) {
         try {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues cv = new ContentValues();
-            cv.put(amount, productAmount);
-            cv.put(closestMHD, productMHD);
-            db.insert(tablename, null, cv);
+            cv.put(name, productName);
+            cv.put(category, productCat);
+            db.insert(tablenameLager, null, cv);
             db.close();
 
             return true;
@@ -91,4 +90,10 @@ public class DBControllerLager extends SQLiteOpenHelper {
         }
     }
 
-}
+
+
+
+
+
+    }
+

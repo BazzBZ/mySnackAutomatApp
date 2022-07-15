@@ -22,7 +22,7 @@
                 android:text="Product Name" />
 
             <EditText
-                android:id="@+id/txtProductName"
+                android:id="@+id/txtPName"
                 android:layout_height="wrap_content"
                 android:layout_weight="4" />
         </TableRow>
@@ -38,7 +38,7 @@
                 android:text="Product Category" />
 
             <EditText
-                android:id="@+id/txtProductCategory"
+                android:id="@+id/txtPCat"
                 android:layout_height="wrap_content"
                 android:layout_weight="4" />
         </TableRow>
@@ -68,7 +68,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="5dp"
-        android:text="SAVE" />
+        android:text="SAVE Products" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -112,7 +112,7 @@
 
 
     <ListView
-        android:id="@+id/lstProducts"
+        android:id="@+id/lstPProducts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

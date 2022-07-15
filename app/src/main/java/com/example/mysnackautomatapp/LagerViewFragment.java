@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -40,13 +39,13 @@ public class LagerViewFragment extends Fragment {
 
         Button btnSave = view.findViewById(R.id.btnSave);
 
-        txtPCat = view.findViewById(R.id.txtProductCategory);
-        txtPName = view.findViewById(R.id.txtProductName);
+        txtPCat = view.findViewById(R.id.txtPCat);
+        txtPName = view.findViewById(R.id.txtPName);
         txtPPrice = view.findViewById(R.id.txtProductPrice);
         txtPMHD = view.findViewById(R.id.txtProductMHD);
         txtPAmount = view.findViewById(R.id.txtProductBestand);
 
-        lstProdukt = view.findViewById(R.id.lstProducts);
+        lstProdukt = view.findViewById(R.id.lstProductLager);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,10 +66,11 @@ public class LagerViewFragment extends Fragment {
             if (dbControllerProdukt == null)
                 dbControllerProdukt = new DBControllerProdukt(getContext().getApplicationContext());
             if (TextUtils.isEmpty(txtPCat.getText().toString()) ||
+                    TextUtils.isEmpty(txtPAmount.getText().toString())||
                     TextUtils.isEmpty(txtPName.getText().toString()) ||
                     TextUtils.isEmpty(txtPPrice.getText().toString()) ||
                     TextUtils.isEmpty(txtPMHD.getText().toString())) {
-                Toast.makeText(getContext(), "Please enter product name, its category & price to save", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please enter product name, its category , the price, the amount left and the best used before date to save", Toast.LENGTH_LONG).show();
                 return;
             }
 
@@ -92,7 +92,7 @@ public class LagerViewFragment extends Fragment {
         txtPCat.setText("");
         txtPPrice.setText("");
         txtPAmount.setText("");
-        txtPAmount.setText("");
+        txtPMHD.setText("");
     }
 
     public void setProducts() {
